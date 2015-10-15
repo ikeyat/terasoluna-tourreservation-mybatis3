@@ -6,10 +6,10 @@ before_script:
 jdk:
   - oraclejdk8
   - oraclejdk7
-  
-script: 
-  - mvn -U sql:execute -f terasoluna-tourreservation-initdb/pom.xml -Ddb.password=
-  - mvn -U install -f terasoluna-tourreservation-parent/pom.xml
-  - mvn -U install -f terasoluna-tourreservation-env/pom.xml
-  - mvn -U install -f terasoluna-tourreservation-domain/pom.xml -Ddatabase.password=
-  - mvn -U install -f terasoluna-tourreservation-web/pom.xml
+
+script:
+  - mvn -U sql:execute -f terasoluna-tourreservation-initdb/pom.xml -Ddb.password= -Dspring.version=4.1.8.RELEASE
+  - mvn -U install -f terasoluna-tourreservation-parent/pom.xml -Dspring.version=4.1.8.RELEASE
+  - mvn -U install -f terasoluna-tourreservation-env/pom.xml -Dspring.version=4.1.8.RELEASE
+  - mvn -U install -f terasoluna-tourreservation-domain/pom.xml -Ddatabase.password= -Dspring.version=4.1.8.RELEASE
+  - mvn -U install -f terasoluna-tourreservation-web/pom.xml -Dspring.version=4.1.8.RELEASE
