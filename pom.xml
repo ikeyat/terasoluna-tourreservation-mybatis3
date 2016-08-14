@@ -23,10 +23,9 @@
     </organization>
 
     <parent>
-        <groupId>org.terasoluna.gfw</groupId>
-        <artifactId>terasoluna-gfw-parent</artifactId>
-        <version>5.2.0-SNAPSHOT</version>
-        <relativePath />
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.3.7.RELEASE</version>
     </parent>
 
     <repositories>
@@ -124,11 +123,49 @@
                         </headerDefinitions>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.codehaus.cargo</groupId>
+                    <artifactId>cargo-maven2-plugin</artifactId>
+                    <version>${cargo-maven2-plugin.version}</version>
+                    <configuration>
+                        <configuration>
+                            <properties>
+                                <cargo.servlet.uriencoding>UTF-8</cargo.servlet.uriencoding>
+                                <cargo.jvmargs>${cargo.jvmargs}</cargo.jvmargs>
+                            </properties>
+                        </configuration>
+                        <container>
+                            <containerId>${cargo.container.id}</containerId>
+                            <zipUrlInstaller>
+                                <url>${cargo.container.url}</url>
+                            </zipUrlInstaller>
+                        </container>
+                        <daemon>
+                            <properties>
+                                <cargo.daemon.url>${cargo.daemon.url}</cargo.daemon.url>
+                                <cargo.daemon.handleid>${project.artifactId}</cargo.daemon.handleid>
+                            </properties>
+                        </daemon>
+                        <deployables>
+                            <deployable>
+                                <location>${project.basedir}/target/${project.artifactId}.war</location>
+                                <type>war</type>
+                            </deployable>
+                        </deployables>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.terasoluna.gfw</groupId>
+                <artifactId>terasoluna-gfw-parent</artifactId>
+                <version>${terasoluna.gfw.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>terasoluna-tourreservation-domain</artifactId>
@@ -231,7 +268,9 @@
         <maven-war-plugin.version>2.5</maven-war-plugin.version>
         <formatter-maven-plugin.version>0.5.2</formatter-maven-plugin.version>
         <com.google.code.maven-license-plugin.version>1.4.0</com.google.code.maven-license-plugin.version>
+        <cargo-maven2-plugin.version>1.4.17</cargo-maven2-plugin.version>
         <!-- == Dependency Versions == -->
+        <terasoluna.gfw.version>5.2.0-SNAPSHOT</terasoluna.gfw.version>
         <postgresql.version>9.4-1206-jdbc41</postgresql.version>
         <jasperreports.version>3.5.1</jasperreports.version>
         <selenium.version>2.46.0</selenium.version>
@@ -239,6 +278,12 @@
         <encoding>UTF-8</encoding>
         <java-version>1.8</java-version>
         <project.root.basedir>${project.basedir}</project.root.basedir>
+        <!-- == Cargo Options == -->
+        <cargo.jvmargs>-Xms512m -Xmx1024m</cargo.jvmargs>
+        <cargo.daemon.url>http://localhost:18000</cargo.daemon.url>
+        <cargo.container.id>tomcat8x</cargo.container.id>
+        <cargo.container.url>http://archive.apache.org/dist/tomcat/tomcat-8/v${cargo.tomcat8.version}/bin/apache-tomcat-${cargo.tomcat8.version}.zip</cargo.container.url>
+        <cargo.tomcat8.version>8.0.36</cargo.tomcat8.version>
     </properties>
     <modules>
         <module>terasoluna-tourreservation-env</module>
