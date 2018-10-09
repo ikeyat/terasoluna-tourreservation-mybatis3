@@ -42,6 +42,11 @@
       <artifactId>terasoluna-gfw-recommended-dependencies</artifactId>
       <type>pom</type>
     </dependency>
+    <!-- Patch for Java9 -->
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
+    </dependency>
     <!-- == End TERASOLUNA == -->
 
     <!-- == Begin Database == -->
