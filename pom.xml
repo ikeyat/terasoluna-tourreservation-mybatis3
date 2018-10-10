@@ -282,7 +282,9 @@
   <properties>
     <!-- == Maven Plugin Versions == -->
     <org.codehaus.mojo.build-helper-maven-plugi.version>1.9.1</org.codehaus.mojo.build-helper-maven-plugi.version>
-    <maven-war-plugin.version>2.5</maven-war-plugin.version>
+    <!-- Support Java11 -->
+    <!--<maven-war-plugin.version>2.5</maven-war-plugin.version> -->
+    <maven-war-plugin.version>3.0.0</maven-war-plugin.version>
     <formatter-maven-plugin.version>2.0.1</formatter-maven-plugin.version>
     <xml-maven-plugin.version>1.0.1</xml-maven-plugin.version>
     <com.google.code.maven-license-plugin.version>1.4.0</com.google.code.maven-license-plugin.version>
