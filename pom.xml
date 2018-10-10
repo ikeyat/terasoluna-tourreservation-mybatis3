@@ -286,6 +286,8 @@
     <formatter-maven-plugin.version>2.0.1</formatter-maven-plugin.version>
     <xml-maven-plugin.version>1.0.1</xml-maven-plugin.version>
     <com.google.code.maven-license-plugin.version>1.4.0</com.google.code.maven-license-plugin.version>
+    <!-- Support Java11 -->
+    <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
     <!-- == Dependency Versions == -->
     <postgresql.version>42.2.2</postgresql.version>
     <jasperreports.version>3.5.1</jasperreports.version>
