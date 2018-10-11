@@ -290,6 +290,8 @@
     <com.google.code.maven-license-plugin.version>1.4.0</com.google.code.maven-license-plugin.version>
     <!-- Support Java11 -->
     <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+    <cargo-maven2-plugin.version>1.6.10</cargo-maven2-plugin.version>
+    <cargo.tomcat9.version>9.0.12</cargo.tomcat9.version>
     <!-- == Dependency Versions == -->
     <postgresql.version>42.2.2</postgresql.version>
     <jasperreports.version>3.5.1</jasperreports.version>
