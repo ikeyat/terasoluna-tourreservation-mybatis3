@@ -37,5 +37,5 @@ script:
   - mvn -U sql:execute -f terasoluna-tourreservation-initdb/pom.xml -Ddb.password=
   - mvn -U install
   - mvn -U cargo:daemon-start -f terasoluna-tourreservation-web/pom.xml
-    less /home/travis/.cargo/logs/terasoluna-tourreservation-web/container.log
+  - less /home/travis/.cargo/logs/terasoluna-tourreservation-web/container.log
   - mvn -U test -f terasoluna-tourreservation-selenium/pom.xml
